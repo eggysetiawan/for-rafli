@@ -9,7 +9,7 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="assets/style.css">
 
-  <title>Hello, world!</title>
+  <title>TESTING</title>
 </head>
 
 <?php
