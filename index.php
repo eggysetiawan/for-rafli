@@ -15,21 +15,21 @@
 <?php
 $conn = mysqli_connect("127.0.0.1", "root", "efotoadmin", "test");
 
-if (isset($_POST['submitName'])){
+if (isset($_POST['submitName'])) {
   $name = $_POST['name'];
   $sex = $_POST['sex'];
   $department = $_POST['department'];
   $query = "INSERT INTO pegawai (name, sex, department) values ('$name', '$sex', '$department')";
-  if (!mysqli_query($conn, $query)){
+  if (!mysqli_query($conn, $query)) {
     echo mysqli_error($conn);
   }
-  
+  // success
 }
 
 ?>
 
 <body>
-  
+
   <div class="container">
     <form method="post" action="">
       <div class="form-group mt-5">
@@ -48,30 +48,33 @@ if (isset($_POST['submitName'])){
 
       <button class="btn btn-success" type="submit" name="submitName">Submit</button>
     </form>
-<br>
+    <br>
     <table class="table table-dark">
-  <thead>
-    <tr>
-      <th scope="col">No</th>
-      <th scope="col">Nama</th>
-      <th scope="col">Jenis Kelamin</th>
-      <th scope="col">ID</th>
-    </tr>
-  </thead>
-  <?php $result = mysqli_query($conn, "SELECT * From pegawai");
-  
-  ?>
-  <tbody>
-    <?php $i=1; while($row = mysqli_fetch_assoc($result)){?>
-    <tr>
-      <th><?= $i; ?></th></th>
-      <td><?= $row['name']; ?></td>
-      <td><?= $row['sex']; ?></td>
-      <td><?= $row['id']; ?></td>
-    </tr>
-    <?php $i++; }?>
-  </tbody>
-</table>
+      <thead>
+        <tr>
+          <th scope="col">No</th>
+          <th scope="col">Nama</th>
+          <th scope="col">Jenis Kelamin</th>
+          <th scope="col">ID</th>
+        </tr>
+      </thead>
+      <?php $result = mysqli_query($conn, "SELECT * From pegawai");
+
+      ?>
+      <tbody>
+        <?php $i = 1;
+        while ($row = mysqli_fetch_assoc($result)) { ?>
+          <tr>
+            <th><?= $i; ?></th>
+            </th>
+            <td><?= $row['name']; ?></td>
+            <td><?= $row['sex']; ?></td>
+            <td><?= $row['id']; ?></td>
+          </tr>
+        <?php $i++;
+        } ?>
+      </tbody>
+    </table>
   </div>
 
   <!-- Optional JavaScript; choose one of the two! -->
