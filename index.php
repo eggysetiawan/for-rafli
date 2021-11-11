@@ -24,6 +24,8 @@ if (isset($_POST['submitName'])) {
     echo mysqli_error($conn);
   }
   // success
+
+  // success kedua
 }
 
 ?>
